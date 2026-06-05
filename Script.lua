@@ -70,9 +70,10 @@ InfoSection:NewText("Создатель: Ch1teruga")
 local InfoSection = MenuTab:NewSection("Примичание")
 
 InfoSection:NewText("После ввода значения скорости, силы прыжка и т.д
-нажимайте Enter")
-InfoSection:NewText("Не используйте одновремено силу прыжка и
-высоту прыжка")
+InfoSection:NewText("После ввода значения скорости, силы прыжка и т.д нажимайте Enter")
+
+InfoSection:NewText("Не используйте одновременно силу прыжка и высоту прыжка")
+
 InfoSection:NewText("На этом проекте лицензия: https://github.com/Ch1teruga/DarkTriadCheat/blob/main/LICENSE")
 
 -- Статус
