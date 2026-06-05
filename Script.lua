@@ -44,20 +44,20 @@ local MenuTab = Window:NewTab("Меню")
 
 local InfoSection = MenuTab:NewSection("Информация")
 
-InfoSection:NewLabel("DarkTriad v1.0")
-InfoSection:NewLabel("Developer: Ch1teruga")
+InfoSection:NewText("DarkTriad v1.0")
+InfoSection:NewText("Создатель: Ch1teruga")
 
 -- Статус
 
 local StatusSection = MenuTab:NewSection("Статус")
 
-StatusSection:NewLabel("Theme: RJTheme3")
+StatusSection:NewText("Тема: RJTheme3")
 
--- Credits
+-- Кредиты
 
 local CreditsSection = MenuTab:NewSection("Credits")
 
-CreditsSection:NewLabel("Thanks for using DarkTriad")
+CreditsSection:NewText("Спасибо за использование DarkTriad")
 
 -- =========================
 -- Передвижение
@@ -99,7 +99,7 @@ end)
 
 -- JumpPower
 
-local JumpPowerSection = Tab:NewSection("JumpPower")
+local JumpPowerSection = Tab:NewSection("Сила прыжка")
 
 JumpPowerSection:NewTextBox("Сила прыжка", "Укажите силу прыжка (деф. 50)", function(value)
 local num = tonumber(value)
@@ -112,7 +112,7 @@ end
 
 end)
 
-JumpPowerSection:NewToggle("Применить силу прыжка", "Вкл/Выкл JumpPower", function(state)
+JumpPowerSection:NewToggle("Применить силу прыжка", "Вкл/Выкл силу прыжка указаную выше", function(state)
 JumpPowerEnabled = state
 
 
@@ -137,7 +137,7 @@ end)
 
 -- JumpHeight
 
-local JumpHeightSection = Tab:NewSection("JumpHeight")
+local JumpHeightSection = Tab:NewSection("Высота прыжка")
 
 JumpHeightSection:NewTextBox("Высота прыжка", "Укажите высоту прыжка (деф. 7.2)", function(value)
 local num = tonumber(value)
@@ -150,7 +150,7 @@ end
 
 end)
 
-JumpHeightSection:NewToggle("Применить высоту прыжка", "Вкл/Выкл JumpHeight", function(state)
+JumpHeightSection:NewToggle("Применить высоту прыжка", "Вкл/Выкл силу прыжка указаную выше", function(state)
 JumpHeightEnabled = state
 
 
@@ -208,9 +208,9 @@ end
 
 end)
 
-local JumpHeightSection = Tab:NewSection("JumpHeight")
+local JumpHeightSection = Tab:NewSection("Сила прыжка")
 
-JumpHeightSection:NewTextBox("Высота прыжка", "Укажите высоту прыжка (деф. 7.2)", function(value)
+JumpHeightSection:NewTextBox("Сила прыжка", "Укажите высоту прыжка (деф. 7.2)", function(value)
 local num = tonumber(value)
 
 
