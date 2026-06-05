@@ -2,8 +2,7 @@
 -- Библиотека
 -- =========================
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/Library.lua"))()
-
+local Library = local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/Library.lua"))()
 local Window = Library.CreateLib("DarkTriad", "RJTheme3")
 
 -- =========================
