@@ -45,3 +45,10 @@ task.spawn(function()
         end
     end
 end)
+
+
+local Section = Tab:NewSection("Прыжок")
+
+Section:NewTextBox("Сила прыжка", "Укажите силу прыжка (деф. 50)", function(JumpPower)
+	 workspace.LocalPlayer.Humanoid.JumpPower = JumpPower
+end)
