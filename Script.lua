@@ -1,30 +1,46 @@
 -- =========================
+-- Лицензия
+-- =========================
+
+print("===== LICENSE =====")
+print(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/LICENSE"))
+print("===================")
+
+
+-- =========================
 -- Библиотека
 -- =========================
+
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/Library.lua"))()
 
 local Window = Library.CreateLib("DarkTriad", "RJTheme3")
 
+
 -- =========================
 -- Сервисы
 -- =========================
 
+
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
+
 
 -- =========================
 -- Функции
 -- =========================
+
 
 local function GetHumanoid()
 local Character = LocalPlayer.Character
 return Character and Character:FindFirstChildOfClass("Humanoid")
 end
 
+
 -- =========================
 -- Переменные
 -- =========================
+
 
 local Speed = 16
 local JumpPower = 50
@@ -34,9 +50,11 @@ local SpeedEnabled = false
 local JumpPowerEnabled = false
 local JumpHeightEnabled = false
 
+
 -- =========================
 -- Меню
 -- =========================
+
 
 local MenuTab = Window:NewTab("Меню")
 
@@ -46,6 +64,16 @@ local InfoSection = MenuTab:NewSection("Информация")
 
 InfoSection:NewText("DarkTriad v1.0")
 InfoSection:NewText("Создатель: Ch1teruga")
+
+ -- Примечание
+
+local InfoSection = MenuTab:NewSection("Примичание")
+
+InfoSection:NewText("После ввода значения скорости, силы прыжка и т.д
+нажимайте Enter")
+InfoSection:NewText("Не используйте одновремено силу прыжка и
+высоту прыжка")
+InfoSection:NewText("На этом проекте лицензия: https://github.com/Ch1teruga/DarkTriadCheat/blob/main/LICENSE")
 
 -- Статус
 
@@ -60,16 +88,10 @@ local CreditsSection = MenuTab:NewSection("Credits")
 CreditsSection:NewText("Спасибо за использование DarkTriad")
 
 
-
-
-print(CreditsSection)
-print(CreditsSection.NewText)
-
-
-
 -- =========================
 -- Передвижение
 -- =========================
+
 
 local Tab = Window:NewTab("Передвижение")
 
@@ -181,9 +203,11 @@ end
 
 end)
 
+
 -- =========================
 -- Основной цикл
 -- =========================
+
 
 task.spawn(function()
 while task.wait(0.1) do
