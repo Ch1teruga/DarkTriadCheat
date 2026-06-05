@@ -16,7 +16,7 @@ Section:NewTextBox("Скорость", "Укажите скорость", functi
     end
 end)
 
--- toggle (переключатель)
+-- переключатель
 Section:NewToggle("Обход замедления", "Вкл/Выкл фиксацию скорости", function(state)
     Enabled = state
 
@@ -32,7 +32,7 @@ Section:NewToggle("Обход замедления", "Вкл/Выкл фикса
     end
 end)
 
--- цикл поддержки скорости
+-- поддержание скорости
 task.spawn(function()
     while task.wait(0.1) do
         if Enabled then
@@ -44,4 +44,4 @@ task.spawn(function()
             end
         end
     end
-end
+end)
