@@ -44,14 +44,4 @@ task.spawn(function()
             end
         end
     end
-end)
-
--- сброс
-Section:NewButton("Сброс скорости", "Ставит скорость 16", function()
-    local char = game.Players.LocalPlayer.Character
-    local humanoid = char and char:FindFirstChildOfClass("Humanoid")
-
-    if humanoid then
-        humanoid.WalkSpeed = 16
-    end
-end)
+end
