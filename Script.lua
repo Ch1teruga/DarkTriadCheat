@@ -2,7 +2,8 @@
 -- Библиотека
 -- =========================
 
-local Library = local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/Library.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ch1teruga/DarkTriadCheat/main/Library.lua"))()
+
 local Window = Library.CreateLib("DarkTriad", "RJTheme3")
 
 -- =========================
@@ -57,6 +58,14 @@ StatusSection:NewText("Тема: RJTheme3")
 local CreditsSection = MenuTab:NewSection("Credits")
 
 CreditsSection:NewText("Спасибо за использование DarkTriad")
+
+
+
+
+print(CreditsSection)
+print(CreditsSection.NewText)
+
+
 
 -- =========================
 -- Передвижение
