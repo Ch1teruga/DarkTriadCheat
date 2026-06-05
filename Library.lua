@@ -2681,6 +2681,28 @@ function Kavo.CreateLib(kavName, themeList)
                 end	
                 return labelFunctions
             end	
+			function Elements:NewText(title)
+    local text = Instance.new("TextLabel")
+
+    text.Name = "Text"
+    text.Parent = sectionInners
+
+    text.BackgroundTransparency = 1
+    text.BorderSizePixel = 0
+
+    text.Size = UDim2.new(0, 352, 0, 20)
+
+    text.Font = Enum.Font.Gotham
+    text.Text = title
+    text.TextColor3 = themeList.TextColor
+    text.TextSize = 14
+    text.TextXAlignment = Enum.TextXAlignment.Left
+
+    updateSectionFrame()
+    UpdateSize()
+
+    return text
+			end
             return Elements
         end
         return Sections
