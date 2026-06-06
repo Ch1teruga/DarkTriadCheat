@@ -37,6 +37,40 @@ local JumpHeightEnabled = false
 print("Переменые загружены...")
 
 -- =========================
+-- Функции
+-- =========================
+
+local function GetHumanoid()
+    local Character = LocalPlayer.Character
+    return Character and Character:FindFirstChildOfClass("Humanoid")
+end
+
+local function ApplySettings()
+    local Humanoid = GetHumanoid()
+    if not Humanoid then return end
+
+    if SpeedEnabled then
+        Humanoid.WalkSpeed = Speed
+    else
+        Humanoid.WalkSpeed = 16
+    end
+
+    if JumpPowerEnabled then
+        Humanoid.UseJumpPower = true
+        Humanoid.JumpPower = JumpPower
+    elseif JumpHeightEnabled then
+        Humanoid.UseJumpPower = false
+        Humanoid.JumpHeight = JumpHeight
+    else
+        Humanoid.UseJumpPower = true
+        Humanoid.JumpPower = 50
+        Humanoid.JumpHeight = 7.2
+    end
+end
+
+print("Функции загружены...")
+
+-- =========================
 -- Меню
 -- =========================
 
@@ -128,39 +162,5 @@ task.spawn(function()
 end)
 
 print("Основной цикл загружен...")
-
--- =========================
--- Функции
--- =========================
-
-local function GetHumanoid()
-    local Character = LocalPlayer.Character
-    return Character and Character:FindFirstChildOfClass("Humanoid")
-end
-
-local function ApplySettings()
-    local Humanoid = GetHumanoid()
-    if not Humanoid then return end
-
-    if SpeedEnabled then
-        Humanoid.WalkSpeed = Speed
-    else
-        Humanoid.WalkSpeed = 16
-    end
-
-    if JumpPowerEnabled then
-        Humanoid.UseJumpPower = true
-        Humanoid.JumpPower = JumpPower
-    elseif JumpHeightEnabled then
-        Humanoid.UseJumpPower = false
-        Humanoid.JumpHeight = JumpHeight
-    else
-        Humanoid.UseJumpPower = true
-        Humanoid.JumpPower = 50
-        Humanoid.JumpHeight = 7.2
-    end
-end
-
-print("Функции загружены...")
 
 print("Скрипт загружен.")
