@@ -69,7 +69,6 @@ InfoSection:NewText("Создатель: Ch1teruga")
 
 local InfoSection = MenuTab:NewSection("Примичание")
 
-InfoSection:NewText("После ввода значения скорости, силы прыжка и т.д
 InfoSection:NewText("После ввода значения скорости, силы прыжка и т.д нажимайте Enter")
 
 InfoSection:NewText("Не используйте одновременно силу прыжка и высоту прыжка")
