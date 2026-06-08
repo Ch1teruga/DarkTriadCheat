@@ -48,6 +48,9 @@ local InfiniteJumpEnabled = false
 
 -- Игрок
 local AntiAfkEnabled = false
+local AntiAfkEnabled = false
+local SavedPosition = nil
+local SelectedPlayer = ""
 
 -- =========================
 -- Функции
@@ -170,6 +173,18 @@ LocalPlayer.Idled:Connect(function()
     end
 end)
 
+-- Функция для получения списка всех ников на сервере (для ТП)
+local function GetPlayerNames()
+    local names = {}
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LocalPlayer then
+            table.insert(names, p.Name)
+        end
+    end
+    return names
+end
+
+
 -- =========================
 -- Меню
 -- =========================
@@ -275,6 +290,40 @@ local AfkSection = PlayerTab:NewSection("Анти-АФК")
 
 AfkSection:NewToggle("Включить Анти-АФК", "Защищает от вылета из игры за АФК", function(state)
     AntiAfkEnabled = state
+end)
+-- Телепорт к игрокам
+local TeleportPlayerSection = PlayerTab:NewSection("Teleport to players")
+
+local PlayerDropdown = TeleportPlayerSection:NewDropdown("Выбрать игрока", "Выберите цель для ТП", GetPlayerNames(), function(currentOption)
+    SelectedPlayer = currentOption
+end)
+
+TeleportPlayerSection:NewButton("Телепортироваться", "Переместиться к выбранному игроку", function()
+    local TargetPlayer = Players:FindFirstChild(SelectedPlayer)
+    if TargetPlayer and TargetPlayer.Character then
+        local TargetRoot = TargetPlayer.Character:FindFirstChild("HumanoidRootPart")
+        local MyRoot = GetRootPart()
+        if MyRoot and TargetRoot then
+            MyRoot.CFrame = TargetRoot.CFrame + Vector3.new(0, 3, 0)
+        end
+    end
+end)
+
+-- Сохранение позиций
+local TeleportPositionSection = PlayerTab:NewSection("Сохранение позиций")
+
+TeleportPositionSection:NewButton("Сохранить позицию", "Запомнить текущее место", function()
+    local RootPart = GetRootPart()
+    if RootPart then
+        SavedPosition = RootPart.CFrame
+    end
+end)
+
+TeleportPositionSection:NewButton("Телепорт на точку", "Переместиться на сохраненное место", function()
+    local RootPart = GetRootPart()
+    if RootPart and SavedPosition then
+        RootPart.CFrame = SavedPosition
+    end
 end)
 
 -- =========================
