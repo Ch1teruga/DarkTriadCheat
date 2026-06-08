@@ -178,15 +178,14 @@ InfoSection:NewText("Помощь: ChatGPT & Gemini")
 
 -- Примечание
 local NoteSection = MenuTab:NewSection("Примечание")
-NoteSection:NewText("После ввода значения скорости, силы прыжка и т.д нажимайте Enter")
+NoteSection:NewText("После ввода значения скорости, силы прыжка")
+NoteSection:NewText("и т.д нажимайте Enter")
 NoteSection:NewText("Не используйте одновременно силу прыжка и высоту прыжка")
 NoteSection:NewText("Лицензия проекта: https://github.com")
 
 -- Статус
 local StatusSection = MenuTab:NewSection("Статус")
 StatusSection:NewText("Тема: RJTheme3")
-
-print("Меню загружено...")
 
 -- =========================
 -- Передвижение
@@ -259,7 +258,11 @@ InfJumpSection:NewToggle("Включить инф. прыжок", "Позвол�
     InfiniteJumpEnabled = state
 end)
 
-print("Передвижение загружено...")
+-- =========================
+-- Автоприменение после смерти
+-- =========================
+
+
 
 -- =========================
 -- Автоприменение после смерти
@@ -271,7 +274,6 @@ LocalPlayer.CharacterAdded:Connect(function()
     ApplySettings()
 end)
 
-print("Автоприменение после смерти загружено...")
 
 -- =========================
 -- Основной цикл
@@ -282,7 +284,3 @@ task.spawn(function()
         ApplySettings()
     end
 end)
-
-print("Основной цикл загружен...")
-
-print("Скрипт загружен.")
