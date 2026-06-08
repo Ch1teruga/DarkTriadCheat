@@ -341,8 +341,11 @@ end)
 -- Основной цикл
 -- =========================
 
-task.spawn(function()
-    while task.wait(0.1) do
-        ApplySettings()
-    end
-end)
+        -- Авто-обновление списка игроков каждые 5 секунд внутри цикла
+        if tick() - lastRefresh >= 5 then
+            lastRefresh = tick()
+            
+            if PlayerDropdown and PlayerDropdown.UpdateDropdown and GetPlayerNames then
+                PlayerDropdown:UpdateDropdown(GetPlayerNames())
+            end
+        end
