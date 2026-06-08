@@ -30,10 +30,10 @@ local Window = Library.CreateLib("DarkTriad", "RJTheme3")
 -- Сервисы
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService") -- Добавлено для бесконечного прыжка
+local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 
--- Параметры передвижения
+-- Передвижение
 local Speed = 16
 local JumpPower = 50
 local JumpHeight = 7.2
@@ -44,11 +44,10 @@ local JumpPowerEnabled = false
 local JumpHeightEnabled = false
 local FlyEnabled = false
 local FlyConnection = nil
-
--- Параметры бесконечного прыжка
 local InfiniteJumpEnabled = false
 
-print("Переменые загружены...")
+-- Игрок
+local AntiAfkEnabled = false
 
 -- =========================
 -- Функции
@@ -162,7 +161,14 @@ UserInputService.JumpRequest:Connect(function()
     end
 end)
 
-print("Функции загружены...")
+-- Логика Анти-АФК
+LocalPlayer.Idled:Connect(function()
+    if AntiAfkEnabled then
+        local VirtualUser = game:GetService("VirtualUser")
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new(0, 0))
+    end
+end)
 
 -- =========================
 -- Меню
@@ -259,10 +265,17 @@ InfJumpSection:NewToggle("Включить инф. прыжок", "Позвол�
 end)
 
 -- =========================
--- Автоприменение после смерти
+-- Игрок
 -- =========================
 
+local PlayerTab = Window:NewTab("Игрок")
 
+-- Анти-АФК
+local AfkSection = PlayerTab:NewSection("Анти-АФК")
+
+AfkSection:NewToggle("Включить Анти-АФК", "Защищает от вылета из игры за АФК", function(state)
+    AntiAfkEnabled = state
+end)
 
 -- =========================
 -- Автоприменение после смерти
