@@ -19,8 +19,6 @@ else
     Library = loadstring(game:HttpGet(FallbackUrl))()
 end
 
-print("Библиотека загружена...")
-
 local Window = Library.CreateLib("DarkTriad", "RJTheme3")
 
 -- =========================
@@ -193,16 +191,13 @@ local MenuTab = Window:NewTab("Меню")
 
 -- Информация
 local InfoSection = MenuTab:NewSection("Информация")
-InfoSection:NewText("DarkTriad v1.0")
-InfoSection:NewText("Создатель: Ch1teruga")
-InfoSection:NewText("Помощь: ChatGPT & Gemini")
+InfoSection:NewText("China Cheat v1.0")
+InfoSection:NewText("Создатель: China")
 
 -- Примечание
 local NoteSection = MenuTab:NewSection("Примечание")
 NoteSection:NewText("После ввода значения скорости, силы прыжка")
 NoteSection:NewText("и т.д нажимайте Enter")
-NoteSection:NewText("Не используйте одновременно силу прыжка и высоту прыжка")
-NoteSection:NewText("Лицензия проекта: https://github.com")
 
 -- Статус
 local StatusSection = MenuTab:NewSection("Статус")
